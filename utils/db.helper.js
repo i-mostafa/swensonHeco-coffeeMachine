@@ -2,7 +2,7 @@
  *  in order to limit size of response & not to load all the data at the same time
  *  in a large application a pagination should be addd to skip this limit
  */
-const maxDocsLimit = process.env.MAX_DOCS_LIMIT || 20;
+const maxDocsLimit = Number(process.env.MAX_DOCS_LIMIT) || 20;
 
 module.exports = class DbHelper {
   constructor(dbModel, queryObj = {}) {
