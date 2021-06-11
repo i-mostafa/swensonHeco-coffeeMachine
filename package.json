@@ -1,0 +1,25 @@
+{
+  "name": "swensonheco-coffeemachine",
+  "version": "1.0.0",
+  "description": "swenson he code challenge for backend nodejs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i-mostafa/swensonHeco-coffeeMachine.git"
+  },
+  "keywords": [
+    "swenson-he",
+    "cofee-machine",
+    "challenge"
+  ],
+  "author": "Islam Mostafa -- islam.mostafa.fahmey@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/i-mostafa/swensonHeco-coffeeMachine/issues"
+  },
+  "homepage": "https://github.com/i-mostafa/swensonHeco-coffeeMachine#readme"
+}
