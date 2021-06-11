@@ -5,7 +5,7 @@ const app = express();
 // middlewares
 app.use(express.json());
 
-app.get("test", (req, res, next) => {
+app.get("/test", (req, res, next) => {
   res.json({ status: "ok" });
 });
 
