@@ -1,6 +1,6 @@
 exports.apiResources = {
   machines: "MACHINE",
-  pods: "PODS",
+  pods: "POD",
 };
 
 exports.codeSpecifier = {
@@ -22,4 +22,15 @@ exports.coffeeMachinesInterface = {
     "ESPRESSO_MACHINE",
   ],
   waterLine: [true, false],
+};
+exports.coffeePodsInterface = {
+  productType: ["COFFEE_POD_LARGE", "COFFEE_POD_SMALL", "ESPRESSO_POD"],
+  cofeeFlaver: [
+    "COFFEE_FLAVOR_VANILLA",
+    "COFFEE_FLAVOR_CARAMEL",
+    "COFFEE_FLAVOR_PSL",
+    "COFFEE_FLAVOR_MOCHA",
+    "COFFEE_FLAVOR_HAZELNUT",
+  ],
+  packSize: [1, 3, 5, 7],
 };

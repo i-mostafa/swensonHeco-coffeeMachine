@@ -7,7 +7,7 @@
     "dev": "nodemon server.js",
     "start": "node server.js",
     "data:import": "node ./devData/dev.js --import",
-    "data:delte": "node ./devData/dev.js --delete"
+    "data:delete": "node ./devData/dev.js --delete"
   },
   "repository": {
     "type": "git",

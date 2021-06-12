@@ -1,25 +1,34 @@
-const { codeSpecifier, apiResources } = require("./api.constants");
+const {
+  codeSpecifier,
+  apiResources,
+  coffeePodsInterface,
+} = require("./api.constants");
 
 exports.getDocsCodes = (docs) => {
-  let codes = new Set();
+  let SKUCodes = new Set();
   for (doc of docs) {
-    const code = getInitialCode(doc.productType);
-    const modelCodes = getModelCodes(code);
-    console.log(modelCodes);
-    codes = new Set([...codes, ...modelCodes]);
+    const docCodes = generateSKUs(doc);
+
+    SKUCodes = new Set([...SKUCodes, ...docCodes]);
   }
-  return [...codes];
+  return [...SKUCodes];
 };
 
-const getInitialCode = (productType) => {
-  let codeNumber = "";
-  const [machine, type, sizeStr] = productType.split("_");
-  codeNumber += codeSpecifier.size[sizeStr];
+const generateSKUs = (doc) => {
+  const [machine, type, sizeStr] = doc.productType.split("_");
+  let code = `${machine[0]}${type[0]}`;
+  code += codeSpecifier.size[sizeStr];
+
   if (type === apiResources.machines) {
-    codeNumber += "0";
+    code += "0";
+    return getModelCodes(code);
+  } else if (type === apiResources.pods) {
+    code += getCodeIndex(coffeePodsInterface.cofeeFlaver, doc.cofeeFlaver);
+    code += doc.packSize;
+    return [code];
   }
-  const code = `${machine[0]}${type[0]}${codeNumber}`;
-  return code;
+
+  return [];
 };
 
 const getModelCodes = (code) => {
@@ -28,4 +37,8 @@ const getModelCodes = (code) => {
     modelCodes.push(code + value);
   }
   return modelCodes;
+};
+
+const getCodeIndex = (list, searchItem) => {
+  return list.findIndex((item) => item === searchItem);
 };

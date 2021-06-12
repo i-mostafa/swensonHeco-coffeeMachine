@@ -11,10 +11,7 @@ exports.getAllCoffeeMachines = catchAsync(async (req, res, next) => {
     CoffeeMachineModel,
     req.query
   );
-  const coffeeMachinesCodes = getDocsCodes(
-    apiResources.machines,
-    coffeeMachines
-  );
-  console.log(coffeeMachinesCodes);
-  res.json({ status: "ok" });
+  const coffeeMachinesCodes = getDocsCodes(coffeeMachines);
+
+  res.json({ codes: coffeeMachinesCodes });
 });
