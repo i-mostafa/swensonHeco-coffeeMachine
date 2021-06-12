@@ -21,15 +21,15 @@ npm i
 
 - add .env file containing:
 
-PORT = "server port number"
+PORT = `server port number`
 
-MAX_DOCS_LIMIT = "maximum documents returned on query"
-DBURL = "database url"
+MAX_DOCS_LIMIT = `maximum documents returned on query`
+DBURL = `database url`
 
-MAx_DEV_RECORDS = "maximum dev data records on resource"
-MIN_DEV_RECORDS = "minimum dev data records on resource"
+MAx_DEV_RECORDS = `maximum dev data records on resource`
+MIN_DEV_RECORDS = `minimum dev data records on resource`
 
-NODE_ENV = "node environment"
+NODE_ENV = `node environment`
 
 for example:
 
@@ -58,3 +58,7 @@ npm run data:import
 ```sh
 npm run dev
 ```
+
+## License
+
+MIT
