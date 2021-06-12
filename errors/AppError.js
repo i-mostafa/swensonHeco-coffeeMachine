@@ -1,3 +1,6 @@
+/**
+ * a class to define error extends Error module
+ */
 module.exports = class AppError extends Error {
   constructor(err) {
     process.env.NODE_ENV === "development" && console.log("err", err);

@@ -1,3 +1,10 @@
+/**
+ * global error handler to fetch errors from all application targets
+ * @param {AppError} err
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ */
 module.exports = (err, req, res, next) => {
   let stack =
     process.env.NODE_ENV === "development"

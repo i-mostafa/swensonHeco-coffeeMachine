@@ -2,8 +2,10 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const fs = require("fs");
 
+// models of db
 const CoffeeMachineModel = require("../models/coffeeMachine.model");
 const CoffeePodModel = require("../models/coffeePod.model");
+
 const generateRandomData = require("./generateRandomData");
 const {
   coffeeMachinesInterface,
