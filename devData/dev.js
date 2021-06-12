@@ -20,8 +20,11 @@ mongoose.connect(
     useUnifiedTopology: true,
   },
   (err) => {
-    if (err) console.log("🎃🎃 Error while connecting to DB.");
-    console.log("🎉🎉 Connected to DB");
+    if (err)
+      process.env.NODE_ENV === "development" &&
+        console.log("🎃🎃 Error while connecting to DB.");
+    process.env.NODE_ENV === "development" &&
+      console.log("🎉🎉 Connected to DB");
   }
 );
 
@@ -33,9 +36,10 @@ const importData = async () => {
   try {
     await CoffeeMachineModel.create(coffeeMachines);
     await CoffeePodModel.create(coffeePods);
-    console.log("Data successfully loaded!");
+    process.env.NODE_ENV === "development" &&
+      console.log("Data successfully loaded!");
   } catch (err) {
-    console.log(err);
+    process.env.NODE_ENV === "development" && console.log(err);
   }
   process.exit();
 };
@@ -45,9 +49,10 @@ const deleteData = async () => {
   try {
     await CoffeeMachineModel.deleteMany();
     await CoffeePodModel.deleteMany();
-    console.log("Data successfully deleted!");
+    process.env.NODE_ENV === "development" &&
+      console.log("Data successfully deleted!");
   } catch (err) {
-    console.log(err);
+    process.env.NODE_ENV === "development" && console.log(err);
   }
   process.exit();
 };
