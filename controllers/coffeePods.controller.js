@@ -7,7 +7,10 @@ const { getDocsCodes } = require("../utils/helper.functions");
 exports.getAllCoffeePods_ = DbFactoryModel.getAllRes(CoffeePodModel);
 
 exports.getAllCoffeePods = catchAsync(async (req, res, next) => {
-  const coffeePods = await DbFactoryModel.getAll(CoffeePodModel, req.query);
+  const coffeePods = await DbFactoryModel.getAll(
+    CoffeePodModel,
+    req.validatedQueryObj
+  );
   const coffeePodsCodes = getDocsCodes(coffeePods);
 
   res.json({ codes: coffeePodsCodes });

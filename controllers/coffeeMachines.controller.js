@@ -9,7 +9,7 @@ exports.getAllCoffeeMachines_ = DbFactoryModel.getAllRes(CoffeeMachineModel);
 exports.getAllCoffeeMachines = catchAsync(async (req, res, next) => {
   const coffeeMachines = await DbFactoryModel.getAll(
     CoffeeMachineModel,
-    req.query
+    req.validatedQueryObj
   );
   const coffeeMachinesCodes = getDocsCodes(coffeeMachines);
 
