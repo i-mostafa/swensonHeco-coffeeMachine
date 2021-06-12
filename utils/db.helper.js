@@ -16,7 +16,10 @@ module.exports = class DbHelper {
    */
   filter() {
     // apply query
-    this.query = this.query.find(this.queryObj).limit(maxDocsLimit);
+    this.query = this.query
+      .find(this.queryObj)
+      .limit(maxDocsLimit)
+      .select("-__v -_id -updatedAt -createdAt");
     return this;
   }
 };
